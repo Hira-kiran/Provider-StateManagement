@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider_statemanagement/provider/opacity_provider.dart';
 
 import 'provider/counter_provider.dart';
-import 'screens/counter_example.dart';
+import 'screens/color_opacity.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -11,13 +12,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CounterProvider(),
-      child: const MaterialApp(
-          debugShowCheckedModeBanner: false, home: CounterExample()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterProvider()),
+        ChangeNotifierProvider(create: (_) => OpacityProvider()),
+      ],
+      child: const MaterialApp(home: ColorOpacitySlider()),
     );
   }
 }
