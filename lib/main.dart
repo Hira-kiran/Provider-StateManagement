@@ -5,6 +5,7 @@ import 'package:provider_statemanagement/screens/themeScreen.dart';
 import 'provider/counter_provider.dart';
 import 'package:provider/provider.dart';
 import 'provider/theme_provider.dart';
+import 'screens/statelessW.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(brightness: Brightness.light),
             darkTheme: ThemeData(brightness: Brightness.dark),
             debugShowCheckedModeBanner: false,
-            home: const ThemeScreen());
+            home: StatelessWid());
       }),
     );
   }
